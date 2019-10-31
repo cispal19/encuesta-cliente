@@ -5,6 +5,7 @@ import { SecurityService } from '../../_services/security.service';
 import { MatDialog } from '@angular/material';
 import { RespuestaApi } from '../../_model/RespuestaApi';
 import { TOKEN_NAME, REFRESH_TOKEN_NAME, ACCESS_TOKEN_NAME, PARAM_USUARIO } from '../../_shared/constants';
+import { ErrorComponent } from './error/error.component';
 
 @Component({
   selector: 'app-login',
@@ -37,10 +38,23 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["main"]);
         });
       }else{
+        this.dialog.open(ErrorComponent, {
+          width: '60%',
+          height: '60%',
+          data: { 
+            error: data.body,
+            dato: data,
+            usuario: this.login.username 
+          }
+        });
         
       }
     }, (error) => {
-      
+      this.dialog.open(ErrorComponent, {
+        width: '60%',
+        height: '60%',
+        data: { error: error }
+      });
     });
   }
 
