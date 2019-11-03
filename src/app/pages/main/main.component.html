@@ -1,3 +1,46 @@
-<p>
-  main works!
-</p>
+<div class="example-container">
+  <mat-toolbar color="primary">
+    <button *ngIf="isAdmin" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+
+    <h1 *ngIf="isAdmin">Resultados Encuesta Lenjuages de Programación</h1>
+    <h1 *ngIf="!isAdmin">Ingrese su Lenjuage de Programación Favorito</h1>
+
+    <span class="example-spacer"></span>
+    <span style="font-size: 12px;text-align: center;">{{usuario.username}}<br>{{usuario.authorities[0].authority}}</span>
+    <span></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/about">
+        <mat-icon>info</mat-icon>
+        <span>Acerca De</span>
+      </button>
+      <button mat-menu-item routerLink="/logout">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar Sesi&oacute;n</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" style="width: 200px">
+      <img src="assets/encuesta.jpg" width="200" style="width: 100%;">
+      <mat-divider></mat-divider>
+
+      <button mat-menu-item (click)="sidenav.toggle()" routerLink="/main/encuesta" style="cursor: pointer">
+        <mat-icon>assignment</mat-icon>
+        <span>Ver encuesta</span>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
