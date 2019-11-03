@@ -1,0 +1,41 @@
+.example-card {
+  width: 40%;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  }
+  
+  
+
+  .btnVotar{
+    background: #3f51b5;
+    color: white;
+    width: 50%;
+    left: 25%;
+  }
+
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .example-form {
+    
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .tituloCard{
+    text-align: center;
+    width: 100%;
+    font-size: 17px;
+    font-family: Robo;
+  }

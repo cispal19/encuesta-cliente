@@ -14,13 +14,15 @@ export class GuardService implements CanActivate {
     private router: Router,
     private securityService: SecurityService) { }
 
-    canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot){
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+      console.log(state.url);
       let token = sessionStorage.getItem(TOKEN_NAME);
       let isAdministrador = this.securityService.esRoleAdmin();
       if (token != null) {
         if (!isAdministrador){
+          console.log(isAdministrador);
           switch (state.url){
-            case '/admin':
+            case '/main/encuesta':
               this.router.navigate(['main']);
               return false;
           }

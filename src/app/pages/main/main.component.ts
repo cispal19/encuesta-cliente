@@ -37,7 +37,6 @@ export class MainComponent implements OnInit {
   getUsuario(){
    let  usuarioSe = JSON.parse(sessionStorage.getItem(PARAM_USUARIO));
    this.usuario = usuarioSe;
-   console.log(this.usuario);
-  }
+   }
 
 }

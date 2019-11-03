@@ -15,6 +15,7 @@ import { ErrorComponent } from './error/error.component';
 export class LoginComponent implements OnInit {
 
   login: LoginDTO;
+  isAdmin: boolean;
 
   constructor(
     private router: Router,
@@ -35,7 +36,13 @@ export class LoginComponent implements OnInit {
 
         this.securityService.validarToken().subscribe((dato: any) => {
           sessionStorage.setItem(PARAM_USUARIO, JSON.stringify(dato.body));
-          this.router.navigate(["main"]);
+          this.isAdmin = this.securityService.esRoleAdmin();
+          if(this.isAdmin){
+            this.router.navigate(["main/encuesta"]);
+          }else{
+            this.router.navigate(["main/registro"]);
+          }
+         
         });
       }else{
         this.dialog.open(ErrorComponent, {

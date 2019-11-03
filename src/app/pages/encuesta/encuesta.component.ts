@@ -46,8 +46,8 @@ export class EncuestaComponent implements OnInit {
   }
   openDialog() {
     this.dialog.open(NuevaEncuestaComponent, {
-      width: '80%',
-      height: '80%'
+      width: '31%',
+      height: '50%'
     });
   }
   eliminarEncuesta(id: number) {

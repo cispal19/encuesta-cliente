@@ -7,13 +7,15 @@ import { MainComponent } from './pages/main/main.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { AboutComponent } from './pages/about/about.component';
 import { EncuestaComponent } from './pages/encuesta/encuesta.component';
+import { RegistroComponent } from './pages/encuesta/registro/registro.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [GuardService]},
   {path: 'logout', component: LogoutComponent},
   {path: 'main', component: MainComponent, children: [
-    {path: 'encuesta', component: EncuestaComponent}
-  ]},
+    {path: 'registro', component: RegistroComponent},
+    {path: 'encuesta', component: EncuestaComponent},
+  ], canActivate: [GuardService]},
   {path: 'about', component: AboutComponent},
   {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];

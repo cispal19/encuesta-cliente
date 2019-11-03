@@ -15,6 +15,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { AboutComponent } from './pages/about/about.component';
 import { EncuestaComponent } from './pages/encuesta/encuesta.component';
 import { NuevaEncuestaComponent } from './pages/encuesta/nueva-encuesta/nueva-encuesta.component';
+import { RegistroComponent } from './pages/encuesta/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NuevaEncuestaComponent } from './pages/encuesta/nueva-encuesta/nueva-en
     LogoutComponent,
     AboutComponent,
     EncuestaComponent,
-    NuevaEncuestaComponent
+    NuevaEncuestaComponent,
+    RegistroComponent
    ],
   imports: [
     BrowserModule,

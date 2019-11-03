@@ -1,23 +1,23 @@
 <div class="example-container">
-    <h2 mat-dialog-title>Nuevo Registro</h2>
+    <h2 mat-dialog-title style="text-align: center;">Nuevo Registro</h2>
     <mat-dialog-content>
       <form #myform="ngForm" class="example-form" (ngSubmit)="onSubmit()">
-          <mat-form-field>
+          <mat-form-field class="example-full-width">
               <input matInput placeholder="Ingrese Nombres" [(ngModel)]="encuesta.nombres" name="nombres"required>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="example-full-width">
               <input matInput placeholder="Ingrese Apellidos" [(ngModel)]="encuesta.apellido" name="apellidos" required>
           </mat-form-field>
   
          
-              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"  [(ngModel)]="encuesta.eleccion" name="eleccion">
-              <mat-radio-button class="example-radio-button" *ngFor="let elec of elecciones" [value]="elec.descripcion">
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"  [(ngModel)]="encuesta.eleccion" name="eleccion" required>
+              <mat-radio-button class="example-radio-button" *ngFor="let elec of elecciones" [value]="elec.descripcion" >
                 {{elec.descripcion}}
               </mat-radio-button>
-            </mat-radio-group>
+          </mat-radio-group>
        
            
-        <button type="submit" mat-fab color="primary" [disabled]="myform.invalid">Votar</button>
+        <button type="submit" mat-button class="btnVotar"  [disabled]="myform.invalid">Votar</button>
       </form>
     </mat-dialog-content>
   </div>

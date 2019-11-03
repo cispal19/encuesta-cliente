@@ -14,6 +14,7 @@ export class EleccionService {
     cargarEleccion() {
      this.http.get('assets/data/eleccion.json').subscribe( (res) => {
        this.listELeccion = res;
+       console.log(this.listELeccion);
      });
    }
 }

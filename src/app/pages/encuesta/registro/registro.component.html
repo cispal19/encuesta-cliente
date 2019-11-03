@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+  <mat-card-header style="width: 100%">
+    
+    <h2 class="tituloCard">Encuesta de lenguajes de programación</h2>
+    
+  </mat-card-header>
+   <mat-card-content>
+    <form #myform="ngForm" class="example-form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Ingrese Nombres" [(ngModel)]="encuesta.nombres" name="nombres" required [disabled]="isSave">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Ingrese Apellidos" [(ngModel)]="encuesta.apellido" name="apellidos" required [disabled]="isSave">
+      </mat-form-field>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"  [(ngModel)]="encuesta.eleccion" name="eleccion" [disabled]="isSave" required>
+          <mat-radio-button class="example-radio-button" *ngFor="let elec of elecciones" [value]="elec.descripcion" >
+            {{elec.descripcion}}
+          </mat-radio-button>
+      </mat-radio-group>
+      <button type="submit" mat-button class="btnVotar"  [disabled]="myform.invalid || isSave">Votar</button>
+  </form>
+  </mat-card-content>
+  <mat-card-actions>
+   
+  </mat-card-actions>
+</mat-card>
